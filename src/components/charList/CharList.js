@@ -36,15 +36,11 @@ class CharList extends Component {
         })
     }
 
-    handleClickItem = (id) => {
-        console.log(id);
-    }
-
     renderItems = (items) => {
         const newArr = items.map(item => {
             const {id, ...itemsOptions} = item;
             return(
-                <CharItem key={id} id={id} {...itemsOptions} onClick={this.handleClickItem}/>
+                <CharItem key={id} id={id} {...itemsOptions} onClick={this.props.onSelectedChar}/>
             )
         })
 
@@ -78,13 +74,9 @@ class CharList extends Component {
 
 const CharItem = ({name, thumbnail, id, onClick}) => {
     const imgStyle = thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg' ? {'objectFit': 'contain'} : {'objectFit': 'cover'};
-    
-    const handleClick = () => {
-        onClick(id);
-    }
 
     const li = 
-        <li className="char__item" onClick={handleClick}>
+        <li className="char__item" onClick={() => onClick(id)}>
             <img src={thumbnail} alt="abyss" style={imgStyle}/>
             <div className="char__name">{name}</div>
         </li>
