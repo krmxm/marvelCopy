@@ -5,7 +5,6 @@ import Skeleton from '../skeleton/Skeleton';
 import MarvelService from '../../services/MarvelService';
 
 import './charInfo.scss';
-import thor from '../../resources/img/thor.jpeg';
 
 class CharInfo extends Component {
 
@@ -43,6 +42,7 @@ class CharInfo extends Component {
             char,
             loading: false
         })
+
     }
 
     onError = () => {
